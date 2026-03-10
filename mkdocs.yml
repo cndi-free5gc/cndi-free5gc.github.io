@@ -1,0 +1,96 @@
+site_name: cndi-free5gc
+site_description: 'Open-Source Core Network Design and Implementation'
+site_author: 'alonza0314'
+site_url: 'https://cndi-free5gc.github.io'
+
+repo_url: 'https://github.com/cndi-free5gc/cndi-free5gc.github.io'
+repo_name: 'cndi-free5gc/cndi-free5gc.github.io'
+
+# Documentation layout
+nav:
+  - Home: index.md
+  - Member: doc-member/index.md
+
+# Theme configuration
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.share
+    - header.autohide
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
+  palette:
+    # Forced Cyberpunk Terminal Mode
+    - scheme: slate
+      primary: black
+      accent: cyan
+  font:
+    text: Rajdhani
+    code: Courier New
+  favicon: image/cndi.jpg
+  logo: image/cndi.jpg
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+  # Disable minify during development because it breaks live reload
+  #- minify:
+  #    minify_html: true
+  - callouts
+
+# Extensions
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.mark
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.tilde
+  - admonition
+  - tables
+  - attr_list
+  - md_in_html
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji
+
+# Custom CSS
+extra_css:
+  - stylesheets/extra.css
+
+# Custom JS
+extra_javascript:
+  - javascripts/extra.js
+
+# Footer
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/cndi-free5gc
+  generator: false
+
+# Copyright
+copyright: Copyright &copy; 2026 Alonza0314. All rights reserved.
+
+# Documentation directory
+docs_dir: doc

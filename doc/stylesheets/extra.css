@@ -1,0 +1,412 @@
+/* =========================================================
+   PROJECT: CNDI-Free5GC
+   THEME: SYNTHETIC CYBERPUNK (ULTIMATE NEON LED DYNAMIC)
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap');
+
+:root {
+  /* BASE NEON PALETTE */
+  --neon-cyan: #0ff;
+  --neon-pink: #f0f;
+  --neon-yellow: #ff0;
+  --neon-purple: #b0f;
+
+  /* BASE GLOWS */
+  --glow-cyan: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+  --glow-pink: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink);
+
+  /* OVERLAYS & BORDERS */
+  --cyber-border: 2px solid var(--neon-cyan);
+  --cyber-bg: rgba(0, 15, 20, 0.85);
+  /* Deep Grid Black */
+
+  /* CLIP PATHS */
+  --clip-cyber: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+}
+
+/* =========================================================
+   GLOBAL OVERRIDES & BACKGROUNDS
+   ========================================================= */
+body,
+[data-md-color-scheme="slate"],
+[data-md-color-scheme="default"] {
+  background-color: #050510 !important;
+  color: #d1f5ff !important;
+  font-family: 'Rajdhani', sans-serif !important;
+
+  /* CYBER GRID BACKGROUND */
+  background-image:
+    linear-gradient(rgba(0, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(255, 0, 255, 0.05) 5px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 0, 255, 0.05) 5px, transparent 2px) !important;
+  background-size: 40px 40px, 40px 40px, 200px 200px, 200px 200px !important;
+  background-position: center bottom !important;
+  animation: bgScroll 30s linear infinite;
+}
+
+@keyframes bgScroll {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 40px 40px;
+  }
+}
+
+/* =========================================================
+   HEADER & LOGO - THE TERMINAL HUD
+   ========================================================= */
+.md-header {
+  background: var(--cyber-bg) !important;
+  backdrop-filter: blur(5px);
+  border-bottom: 3px solid var(--neon-pink);
+  box-shadow: 0 5px 20px rgba(255, 0, 255, 0.4), inset 0 -2px 10px var(--neon-cyan);
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  border: 1px solid var(--neon-cyan);
+  border-radius: 0;
+  box-shadow: var(--glow-cyan);
+  padding: 2px;
+  background: rgba(0, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.md-header__button.md-logo:hover img,
+.md-header__button.md-logo:hover svg {
+  border-color: var(--neon-pink);
+  box-shadow: var(--glow-pink);
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.md-header__title {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--neon-cyan) !important;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: var(--glow-cyan);
+  animation: glitch 5s infinite;
+  overflow: visible !important;
+}
+
+/* ANTI-CLIPPING HACK FOR GLOW EFFECTS */
+.md-header__title .md-header__ellipsis,
+.md-header__title .md-ellipsis {
+  overflow: visible !important;
+}
+
+/* FIX GITHUB REPO STATS FONT */
+.md-source__repository,
+.md-source__fact {
+  font-family: 'Rajdhani', sans-serif !important;
+}
+
+/* SEARCH BAR CYBER HACK */
+.md-search__input {
+  background-color: rgba(0, 255, 255, 0.1) !important;
+  border: 1px solid var(--neon-cyan) !important;
+  color: var(--neon-cyan) !important;
+  font-family: 'Orbitron', sans-serif;
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.2);
+  border-radius: 0 !important;
+}
+
+.md-search__icon {
+  color: var(--neon-pink) !important;
+}
+
+/* =========================================================
+   TYPOGRAPHY & CONTENT
+   ========================================================= */
+.md-content {
+  padding-bottom: 100px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.md-content h1,
+.md-content h2,
+.md-content h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--neon-cyan) !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px var(--neon-cyan);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+  padding-bottom: 5px;
+  position: relative;
+  display: inline-block;
+}
+
+/* ADD GLITCH DECORATION TO HEADERS */
+h1::before,
+h2::before {
+  content: '/> ';
+  color: var(--neon-pink);
+  text-shadow: var(--glow-pink);
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--neon-cyan);
+  box-shadow: var(--glow-cyan);
+}
+
+/* ALL LINKS ARE NEON */
+.md-content a {
+  color: var(--neon-yellow) !important;
+  text-decoration: none !important;
+  border-bottom: 1px dashed var(--neon-yellow);
+  transition: all 0.2s;
+  text-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+}
+
+.md-content a:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 0, 0.2);
+  box-shadow: 0 0 10px var(--neon-yellow);
+  border-bottom: 1px solid var(--neon-yellow);
+}
+
+/* =========================================================
+   NAVIGATION (LEFT MENU) & TOC (RIGHT MENU)
+   ========================================================= */
+.md-nav {
+  background: transparent !important;
+}
+
+.md-sidebar--primary .md-sidebar__scrollwrap,
+.md-sidebar--secondary .md-sidebar__scrollwrap {
+  background: transparent !important;
+}
+
+.md-nav__item>.md-nav__link {
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  color: #7df !important;
+  transition: 0.3s;
+  border-left: 2px solid transparent;
+}
+
+.md-nav__item>.md-nav__link:hover {
+  color: #fff !important;
+  text-shadow: var(--glow-cyan);
+  border-left: 2px solid var(--neon-cyan);
+  background: transparent !important;
+  padding-left: 1rem;
+}
+
+.md-nav__item .md-nav__link--active {
+  color: var(--neon-pink) !important;
+  text-shadow: 0 0 5px var(--neon-pink);
+  border-left: 3px solid var(--neon-pink) !important;
+  background: transparent !important;
+}
+
+/* TOC (Right Sidebar) Specific Fixes */
+.md-nav__list .md-nav__link {
+  color: #aae !important;
+}
+
+.md-sidebar--secondary {
+  background: transparent !important;
+}
+
+/* =========================================================
+   BUTTONS & CARDS - CYBER DECK PANELS
+   ========================================================= */
+.md-button {
+  background: rgba(0, 255, 255, 0.1) !important;
+  color: var(--neon-cyan) !important;
+  border: 1px solid var(--neon-cyan) !important;
+  font-family: 'Orbitron', sans-serif !important;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  clip-path: var(--clip-cyber);
+  /* RECTANGULAR, NOT ROUNDED */
+  border-radius: 0 !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.md-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  transition: 0.5s;
+}
+
+.md-button:hover {
+  background: var(--neon-cyan) !important;
+  color: #000 !important;
+  box-shadow: var(--glow-cyan) !important;
+  text-shadow: none !important;
+}
+
+.md-button:hover::before {
+  left: 150%;
+}
+
+/* IMAGES = DATA HOLOGRAPHICS */
+.md-content img {
+  border: 2px solid var(--neon-cyan);
+  border-radius: 0 !important;
+  /* CYBERPUNK NO CURVES */
+  padding: 5px;
+  background: rgba(0, 255, 255, 0.05);
+  box-shadow: var(--glow-cyan);
+  filter: hue-rotate(180deg) saturate(1.5) contrast(1.2) brightness(0.9);
+  /* HOLOGRAPHIC FILTER */
+  opacity: 0.9;
+  transition: 0.4s;
+}
+
+.md-content img:hover {
+  filter: none;
+  opacity: 1;
+  box-shadow: var(--glow-pink);
+  border-color: var(--neon-pink);
+  transform: scale(1.02) perspective(500px) rotateX(2deg);
+}
+
+/* =========================================================
+   CODE BLOCKS - TERMINAL EXECUTION
+   ========================================================= */
+.md-typeset pre>code {
+  background: #020205 !important;
+  border: 1px solid var(--neon-cyan) !important;
+  border-left: 5px solid var(--neon-pink) !important;
+  color: #0f0 !important;
+  /* MATRIX GREEN */
+  font-family: 'Courier New', Courier, monospace !important;
+  box-shadow: inset 0 0 15px rgba(0, 255, 255, 0.1);
+  text-shadow: 0 0 2px rgba(0, 255, 0, 0.5);
+}
+
+.md-typeset code {
+  background: rgba(255, 0, 255, 0.2) !important;
+  color: var(--neon-pink) !important;
+  border: 1px solid var(--neon-pink);
+}
+
+/* =========================================================
+   ANIMATIONS 
+   ========================================================= */
+@keyframes glitch {
+  0% {
+    transform: translate(0)
+  }
+
+  2% {
+    transform: translate(-2px, 1px)
+  }
+
+  4% {
+    transform: translate(2px, -1px)
+  }
+
+  6% {
+    transform: translate(0)
+  }
+
+  100% {
+    transform: translate(0)
+  }
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    opacity: 1;
+    text-shadow: var(--glow-cyan);
+  }
+
+  50% {
+    opacity: 0.8;
+    text-shadow: 0 0 5px var(--neon-cyan);
+  }
+}
+
+/* =========================================================
+   SCROLLBAR & MISC TWEAKS
+   ========================================================= */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+  border-left: 1px solid var(--neon-cyan);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-cyan);
+  box-shadow: var(--glow-cyan);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-pink);
+}
+
+.md-footer {
+  background: #020205 !important;
+  border-top: 3px solid var(--neon-cyan);
+  box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.3) !important;
+}
+
+/* PREV/NEXT BUTTONS */
+.nav-btn {
+  background: rgba(0, 0, 0, 0.8) !important;
+  color: var(--neon-cyan) !important;
+  border: 1px solid var(--neon-cyan) !important;
+  border-radius: 0 !important;
+  clip-path: polygon(20% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%);
+  box-shadow: 0 0 10px var(--neon-cyan) !important;
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  background: var(--neon-pink) !important;
+  color: #fff !important;
+  border-color: var(--neon-pink) !important;
+  box-shadow: var(--glow-pink) !important;
+  transform: scale(1.1) rotate(2deg);
+}
+
+/* MD ADMONITIONS (ALERTS) */
+.md-typeset .admonition {
+  background: rgba(0, 255, 255, 0.05) !important;
+  border-left-color: var(--neon-cyan) !important;
+  border: 1px solid var(--neon-cyan);
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+.md-typeset .admonition-title {
+  background: rgba(0, 255, 255, 0.2) !important;
+  color: var(--neon-cyan) !important;
+  font-family: 'Orbitron';
+  text-transform: uppercase;
+  text-shadow: 0 0 5px var(--neon-cyan);
+}
