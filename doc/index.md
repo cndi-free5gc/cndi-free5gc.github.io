@@ -22,7 +22,7 @@
 | 2 | 2026-09-14 | Github, git and dev tool introduction | FPJ |
 | 3 | 2026-09-21 | 4G to 5G | **PT1 DDL** & PJ1 |
 | 4 | 2026-09-28 | ==教師節放假== | |
-| 5 | 2026-10-05 | 5G Architecture |  |
+| 5 | 2026-10-05 | 5G Architecture | |
 | 6 | 2026-10-12 | 5GC Network Functions AMF/SMF/UPF | **PJ1 DDL** & PT2 |
 | 7 | 2026-10-19 | 5GC Network Functions Other NFs | PJ2 |
 | 8 | 2026-10-26 | ==光復節放假== | **PT2 DDL** |
