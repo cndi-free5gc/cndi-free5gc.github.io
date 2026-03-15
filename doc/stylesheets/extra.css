@@ -410,3 +410,269 @@ h1::after {
   text-transform: uppercase;
   text-shadow: 0 0 5px var(--neon-cyan);
 }
+
+/* =========================================================
+   LED MEMBER CARD (3:7 LAYOUT)
+   ========================================================= */
+.led-card-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.led-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 900px;
+  background: rgba(0, 15, 20, 0.7);
+  border: 2px solid var(--neon-cyan);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), inset 0 0 20px rgba(0, 255, 255, 0.1);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.led-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, transparent 50%, rgba(255, 0, 255, 0.05) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.led-card:hover {
+  box-shadow: 0 0 25px var(--neon-cyan), inset 0 0 30px rgba(0, 255, 255, 0.2);
+  transform: translateY(-5px);
+  border-color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .led-card {
+    flex-direction: row;
+  }
+}
+
+/* LEFT SIDE (30%) */
+.led-card-left {
+  flex: 3;
+  padding: 1.5rem;
+  background: rgba(0, 255, 255, 0.05);
+  border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .led-card-left {
+    border-bottom: none;
+    border-right: 2px solid rgba(0, 255, 255, 0.3);
+  }
+}
+
+.avatar-glow-wrapper {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-glow-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50% !important;
+  background: rgba(0, 255, 255, 0.1) !important;
+  transform: scale(1.05) !important;
+  /* Applied static scale from previous hover */
+  box-shadow: 0 0 30px var(--neon-cyan), 0 0 50px rgba(0, 255, 255, 0.5) !important;
+  /* Applied static glow from previous hover */
+  filter: none !important;
+  opacity: 1 !important;
+  padding: 0 !important;
+  border: 2px solid var(--neon-cyan) !important;
+}
+
+.avatar-glow-wrapper img:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 0 40px var(--neon-pink), 0 0 60px rgba(255, 0, 255, 0.6) !important;
+  border-color: var(--neon-pink) !important;
+  filter: none !important;
+}
+
+.led-card-left h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  border: none;
+}
+
+.led-card-left h2::before,
+.led-card-left h2::after {
+  display: none;
+}
+
+/* RIGHT SIDE (70%) */
+.led-card-right {
+  flex: 7;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.led-section-title {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px dashed rgba(0, 255, 255, 0.4);
+  padding-bottom: 10px;
+}
+
+.led-section-title::before,
+.led-section-title::after {
+  display: none;
+  /* override global h3 glitch effects */
+}
+
+.led-section-title svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--neon-pink);
+  filter: drop-shadow(0 0 5px var(--neon-pink));
+}
+
+.led-experience-list,
+.md-typeset .led-experience-list {
+  list-style: none !important;
+  list-style-type: none !important;
+  padding: 0;
+  margin: 0;
+}
+
+.led-experience-list>li,
+.md-typeset .led-experience-list>li {
+  list-style: none !important;
+  list-style-type: none !important;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.led-experience-list>li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 5px var(--neon-cyan);
+  font-size: 0.8rem;
+}
+
+.led-experience-list strong {
+  color: var(--neon-yellow);
+  text-shadow: 0 0 3px rgba(255, 255, 0, 0.5);
+  font-size: 1.1rem;
+}
+
+.led-experience-list code {
+  background: rgba(255, 0, 255, 0.1) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 0, 255, 0.3) !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-left: 10px;
+}
+
+.led-experience-list ul {
+  margin-top: 0.5rem;
+  list-style: square;
+  color: #d1f5ff;
+}
+
+.led-experience-list ul li {
+  margin-bottom: 0.25rem;
+  opacity: 0.9;
+}
+
+/* =========================================================
+   CYBER TABLE (TA SECTION)
+   ========================================================= */
+.cyber-table-wrapper {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border: 1px solid var(--neon-cyan);
+  background: rgba(0, 15, 20, 0.7);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(0, 255, 255, 0.1);
+  position: relative;
+}
+
+.cyber-table-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--neon-cyan);
+  box-shadow: var(--glow-cyan);
+}
+
+.cyber-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.cyber-table th,
+.cyber-table td {
+  padding: 1rem;
+  border-bottom: 1px dashed rgba(0, 255, 255, 0.3);
+}
+
+.cyber-table th {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--neon-pink);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: rgba(255, 0, 255, 0.1);
+  border-bottom: 2px solid var(--neon-cyan);
+  text-shadow: 0 0 5px var(--neon-pink);
+}
+
+.cyber-table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.cyber-table tbody tr:hover {
+  background: rgba(0, 255, 255, 0.1);
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.cyber-table td {
+  color: #d1f5ff;
+}
+
+.cyber-table td a {
+  color: var(--neon-yellow) !important;
+  text-shadow: 0 0 3px rgba(255, 255, 0, 0.5);
+}
+
+.cyber-table td a:hover {
+  color: #fff !important;
+  text-shadow: 0 0 8px var(--neon-yellow);
+}
