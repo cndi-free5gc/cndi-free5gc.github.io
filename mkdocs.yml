@@ -10,6 +10,9 @@ repo_name: 'cndi-free5gc/cndi-free5gc.github.io'
 nav:
   - Home: index.md
   - Member: doc-member/index.md
+  - Slides: doc-slide/index.md
+  - Practices: doc-pratice/index.md
+  - Projects: doc-project/index.md
 
 # Theme configuration
 theme:
