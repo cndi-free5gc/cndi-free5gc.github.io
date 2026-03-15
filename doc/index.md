@@ -16,24 +16,116 @@
 
 ## 課程大綱 & 進度
 
-| 週 | 日期 | 主題 | 事件 |
-| - | - | - | - |
-| 1 | 2026-09-07 | Syllabus | PT1 |
-| 2 | 2026-09-14 | Github, git and dev tool introduction | FPJ |
-| 3 | 2026-09-21 | 4G to 5G | **PT1 DDL** & PJ1 |
-| 4 | 2026-09-28 | ==教師節放假== | |
-| 5 | 2026-10-05 | 5G Architecture | |
-| 6 | 2026-10-12 | 5GC Network Functions AMF/SMF/UPF | **PJ1 DDL** & PT2 |
-| 7 | 2026-10-19 | 5GC Network Functions Other NFs | PJ2 |
-| 8 | 2026-10-26 | ==光復節放假== | **PT2 DDL** |
-| 9 | 2026-11-02 | 5GC Deployment - free5GC Compose | Midterm & PT3 |
-| 10 | 2026-11-09 | 5GC Deployment - free5GC Helm | **PJ2 DDL** |
-| 11 | 2026-11-16 | 5G RAN/UE - free-ran-ue | **PT3 DDL** & PJ3 |
-| 12 | 2026-11-23 | 5G RAN/UE - Concurrent Programming | |
-| 13 | 2026-11-30 | 5G RAN/Ue - Unit / Integration Test | **FPJP DDL** |
-| 14 | 2026-12-07 | Final Project Discussion | **PJ3 DDL** |
-| 15 | 2026-12-14 | Final Project Demo | **FPJ DDL** |
-| 16 | 2026-12-21 | Final Project Demo | |
+<div class="cyber-table-wrapper">
+  <table class="cyber-table">
+    <thead>
+      <tr>
+        <th>週</th>
+        <th>日期</th>
+        <th>主題</th>
+        <th>事件</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>2026-09-07</td>
+        <td>Syllabus</td>
+        <td>PT1</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>2026-09-14</td>
+        <td>Github, git and dev tool introduction</td>
+        <td>FPJ</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>2026-09-21</td>
+        <td>4G to 5G</td>
+        <td><strong>PT1 DDL</strong> &amp; PJ1</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>2026-09-28</td>
+        <td><mark>教師節放假</mark></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>2026-10-05</td>
+        <td>5G Architecture</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>2026-10-12</td>
+        <td>5GC Network Functions AMF/SMF/UPF</td>
+        <td><strong>PJ1 DDL</strong> &amp; PT2</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>2026-10-19</td>
+        <td>5GC Network Functions Other NFs</td>
+        <td>PJ2</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>2026-10-26</td>
+        <td><mark>光復節放假</mark></td>
+        <td><strong>PT2 DDL</strong></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>2026-11-02</td>
+        <td>5GC Deployment - free5GC Compose</td>
+        <td>Midterm &amp; PT3</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>2026-11-09</td>
+        <td>5GC Deployment - free5GC Helm</td>
+        <td><strong>PJ2 DDL</strong></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>2026-11-16</td>
+        <td>5G RAN/UE - free-ran-ue</td>
+        <td><strong>PT3 DDL</strong> &amp; PJ3</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>2026-11-23</td>
+        <td>5G RAN/UE - Concurrent Programming</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>2026-11-30</td>
+        <td>5G RAN/Ue - Unit / Integration Test</td>
+        <td><strong>FPJP DDL</strong></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>2026-12-07</td>
+        <td>Final Project Discussion</td>
+        <td><strong>PJ3 DDL</strong></td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>2026-12-14</td>
+        <td>Final Project Demo</td>
+        <td><strong>FPJ DDL</strong></td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>2026-12-21</td>
+        <td>Final Project Demo</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 > [!Note]
 >
