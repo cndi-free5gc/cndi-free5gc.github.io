@@ -70,6 +70,7 @@
 - （40%）Final Project 4 - 5Gix
 
     - (10%) Proposal - Final Project Plan, `2026-09-14 ~ 2026-11-30`
+    - (30%) Presentation, `2026-09-14 ~ 2026-12-14`
 
 - （10%）Participation - Midterm & Practices
 
