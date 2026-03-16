@@ -157,7 +157,7 @@
 ## 評分 & 作業
 
 - （15%）Project 1 - free5GC CTF, `2026-09-21 ~ 2026-10-12`
-- （15%）Project 2 - Network Service Function, `2026-10-19 ~ 2026-11-19`
+- （15%）Project 2 - Network Service Function, `2026-10-19 ~ 2026-11-09`
 - （20%）Project 3 - NR Dual Connection, `2026-11-16 ~ 2026-12-07`
 - （40%）Final Project 4 - 5Gix
 
@@ -170,7 +170,7 @@
     - Practice 不是 1 個 1% 計算，會是 Participation 調整依據
 
         - Practice 1, Installation, `2026-09-07 ~ 2026-09-21`
-        - Practice 2, NF Writing, `2026-10-12 ~ 2026-11-09`
+        - Practice 2, NF Writing, `2026-10-12 ~ 2026-10-26`
         - Practice 3, ULCL & Traffic Influence, `2026-11-02 ~ 2026-11-16`
 
 ## 注意事項
