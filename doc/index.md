@@ -170,7 +170,7 @@
     - Practice 不是 1 個 1% 計算，會是 Participation 調整依據
 
         - Practice 1, Installation, `2026-09-07 ~ 2026-09-21`
-        - Practice 2, , `2026-10-12 ~ 2026-11-09`
+        - Practice 2, NF Writing, `2026-10-12 ~ 2026-11-09`
         - Practice 3, ULCL & Traffic Influence, `2026-11-02 ~ 2026-11-16`
 
 ## 注意事項
