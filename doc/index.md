@@ -31,13 +31,13 @@
         <td>1</td>
         <td>2026-09-07</td>
         <td>Syllabus</td>
-        <td>PT1</td>
+        <td></td>
       </tr>
       <tr>
         <td>2</td>
         <td>2026-09-14</td>
         <td>Github, git and dev tool introduction</td>
-        <td>FPJ</td>
+        <td>PT1 & FPJ</td>
       </tr>
       <tr>
         <td>3</td>
