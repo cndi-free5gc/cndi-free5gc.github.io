@@ -13,6 +13,7 @@
 1. 了解什麼是 5G
 2. 成為 5G 開源專案的貢獻者，包含 5G Core / 5G RAN...
 3. 成為 free5GC 的[貢獻者](https://github.com/free5gc/governance/blob/main/CONTRIBUTORS.md)
+4. 成為 Open-source Project 的貢獻者、維護者或是創立者
 
 ## 課程大綱 & 進度
 
@@ -36,13 +37,13 @@
       <tr>
         <td>2</td>
         <td>2026-09-14</td>
-        <td>Github, git and dev tool introduction</td>
+        <td>Github, git and dev tool introduction & 4G to 5G</td>
         <td>PT1 & FPJ</td>
       </tr>
       <tr>
         <td>3</td>
         <td>2026-09-21</td>
-        <td>4G to 5G</td>
+        <td>5G Architecture</td>
         <td><strong>PT1 DDL</strong> &amp; PJ1</td>
       </tr>
       <tr>
@@ -54,13 +55,13 @@
       <tr>
         <td>5</td>
         <td>2026-10-05</td>
-        <td>5G Architecture</td>
+        <td>free5GC & 5GC Network Functions AMF</td>
         <td></td>
       </tr>
       <tr>
         <td>6</td>
         <td>2026-10-12</td>
-        <td>5GC Network Functions AMF/SMF/UPF</td>
+        <td>5GC Network Functions SMF/UPF</td>
         <td><strong>PJ1 DDL</strong> &amp; PT2</td>
       </tr>
       <tr>
@@ -78,31 +79,31 @@
       <tr>
         <td>9</td>
         <td>2026-11-02</td>
-        <td>5GC Deployment - free5GC Compose</td>
+        <td>5GC Deployment - free5GC Compose & Helm</td>
         <td>Midterm &amp; PT3</td>
       </tr>
       <tr>
         <td>10</td>
         <td>2026-11-09</td>
-        <td>5GC Deployment - free5GC Helm</td>
+        <td>5G RAN/UE - free-ran-ue</td>
         <td><strong>PJ2 DDL</strong></td>
       </tr>
       <tr>
         <td>11</td>
         <td>2026-11-16</td>
-        <td>5G RAN/UE - free-ran-ue</td>
+        <td>Concurrent Programming in Go</td>
         <td><strong>PT3 DDL</strong> &amp; PJ3</td>
       </tr>
       <tr>
         <td>12</td>
         <td>2026-11-23</td>
-        <td>5G RAN/UE - Concurrent Programming</td>
+        <td>Unit / Integration Test</td>
         <td></td>
       </tr>
       <tr>
         <td>13</td>
         <td>2026-11-30</td>
-        <td>5G RAN/Ue - Unit / Integration Test</td>
+        <td>free5GC IT System</td>
         <td><strong>FPJP DDL</strong></td>
       </tr>
       <tr>
@@ -190,7 +191,7 @@
     - Project：*70%/week
 
         - 2個禮拜就是 70%*70%=49%
-        - 遲交1秒也是遲交，不接受理由（網路卡住、重新上傳但來不及、我有 commit 記錄、我在飛機上飛機誤點、我的時區不一樣）
+        - 遲交1秒也是遲交，不接受理由（網路卡住、重新上傳但來不及、我有 commit 記錄、我在飛機上飛機誤點、我的時區不一樣、我家炸了）
 
     - Final Project（含 Proposal）：不接受任何理由遲交
 

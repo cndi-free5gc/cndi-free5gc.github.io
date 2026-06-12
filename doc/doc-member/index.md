@@ -19,13 +19,20 @@
       </h3>
       <ul class="led-experience-list">
         <li>
+          <strong>Lecturer</strong>, NYCU<br>
+          <code>2026-8 ~ 現在</code>
+          <ul>
+            <li>開源核心網路設計與實作, 114-Fall</li>
+          </ul>
+        </li>
+        <li>
           <strong>Software Engineer</strong>, Saviah<br><code>2026-1 ~ 現在</code>
         </li>
         <li>
           <strong>Founder</strong>, free-ran-ue<br><code>2025-6 ~ 現在</code>
         </li>
         <li>
-          <strong>Committer</strong>, free5GC<br><code>2024-9 ~ 現在</code>
+          <strong>PM/Committer</strong>, free5GC<br><code>2024-9 ~ 現在</code>
         </li>
         <li>
           <strong>Student</strong>, WIRELab, IAIS NYCU<br><code>2024-9 ~ 2026-2</code>
