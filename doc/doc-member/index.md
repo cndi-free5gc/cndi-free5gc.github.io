@@ -32,7 +32,7 @@
           <strong>Founder</strong>, free-ran-ue<br><code>2025-6 ~ 現在</code>
         </li>
         <li>
-          <strong>PM/Committer</strong>, free5GC<br><code>2024-9 ~ 現在</code>
+          <strong>TSC/PM</strong>, free5GC<br><code>2024-9 ~ 現在</code>
         </li>
         <li>
           <strong>Student</strong>, WIRELab, IAIS NYCU<br><code>2024-9 ~ 2026-2</code>
