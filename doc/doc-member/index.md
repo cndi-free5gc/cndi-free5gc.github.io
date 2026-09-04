@@ -71,7 +71,7 @@
       <tr>
         <td>115-Fall</td>
         <td>謝孟翰</td>
-        <td><a href="#" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td><a href="https://github.com/d11nn" target="_blank" rel="noopener noreferrer">GitHub</a></td>
       </tr>
     </tbody>
   </table>
