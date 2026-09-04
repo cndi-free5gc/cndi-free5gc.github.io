@@ -26,6 +26,9 @@
           </ul>
         </li>
         <li>
+          <strong>Developer Relations Manager</strong>, Saviah<br><code>2026-8 ~ 現在</code>
+        </li>
+        <li>
           <strong>Software Engineer</strong>, Saviah<br><code>2026-1 ~ 現在</code>
         </li>
         <li>
