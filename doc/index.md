@@ -31,7 +31,7 @@
       <tr>
         <td>1</td>
         <td>2026-09-07</td>
-        <td>Syllabus</td>
+        <td>Syllabus & Introduction</td>
         <td></td>
       </tr>
       <tr>
