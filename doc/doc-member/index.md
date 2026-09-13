@@ -26,13 +26,16 @@
           </ul>
         </li>
         <li>
+          <strong>Developer Relations Manager</strong>, Saviah<br><code>2026-8 ~ 現在</code>
+        </li>
+        <li>
           <strong>Software Engineer</strong>, Saviah<br><code>2026-1 ~ 現在</code>
         </li>
         <li>
           <strong>Founder</strong>, free-ran-ue<br><code>2025-6 ~ 現在</code>
         </li>
         <li>
-          <strong>PM/Committer</strong>, free5GC<br><code>2024-9 ~ 現在</code>
+          <strong>TSC/PM</strong>, free5GC<br><code>2024-9 ~ 現在</code>
         </li>
         <li>
           <strong>Student</strong>, WIRELab, IAIS NYCU<br><code>2024-9 ~ 2026-2</code>
@@ -68,7 +71,7 @@
       <tr>
         <td>115-Fall</td>
         <td>謝孟翰</td>
-        <td><a href="#" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td><a href="https://github.com/d11nn" target="_blank" rel="noopener noreferrer">GitHub</a></td>
       </tr>
     </tbody>
   </table>
