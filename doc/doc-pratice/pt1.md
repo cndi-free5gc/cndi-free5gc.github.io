@@ -45,7 +45,6 @@
 2. frush 以下截圖
     - add
     - gnb
-    - ue
     - status
     - reg
     - ping
