@@ -8,7 +8,7 @@
 
 1. 開一台 VM 安裝 free5GC
 2. 再開一台 VM 安裝 free-ran-ue 或是使用 namespace 的方式安裝在同一台 VM
-3. 在 free5GC 那台 VM 上使用 frush 模擬 RNA/UE
+3. 在 free5GC 那台 VM 上使用 frush 模擬 RAN/UE
 
 （如果可以的話幫忙在 free5GC 與 free-ran-ue 的 github 上給個小星星🌟吧！）
 
