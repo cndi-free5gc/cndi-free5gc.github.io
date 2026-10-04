@@ -1,0 +1,940 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Open-Source Core Network Design and Implementation">
+      
+      
+        <meta name="author" content="alonza0314">
+      
+      
+        <link rel="canonical" href="https://cndi-free5gc.github.io/">
+      
+      
+      
+        <link rel="next" href="doc-member/">
+      
+      
+      <link rel="icon" href="image/cndi.jpg">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+    
+    
+      
+        <title>cndi-free5gc</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rajdhani:300,300i,400,400i,700,700i%7CCourier+New:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Rajdhani";--md-code-font:"Courier New"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cndi-free5gc" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="cndi-free5gc" class="md-header__button md-logo" aria-label="cndi-free5gc" data-md-component="logo">
+      
+  <img src="image/cndi.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            cndi-free5gc
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cndi-free5gc/cndi-free5gc.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cndi-free5gc/cndi-free5gc.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="doc-member/" class="md-tabs__link">
+        
+  
+    
+  
+  Member
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="doc-slide/" class="md-tabs__link">
+        
+  
+    
+  
+  Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="doc-pratice/" class="md-tabs__link">
+        
+  
+    
+  
+  Practices
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="doc-project/" class="md-tabs__link">
+        
+  
+    
+  
+  Projects
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="cndi-free5gc" class="md-nav__button md-logo" aria-label="cndi-free5gc" data-md-component="logo">
+      
+  <img src="image/cndi.jpg" alt="logo">
+
+    </a>
+    cndi-free5gc
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cndi-free5gc/cndi-free5gc.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cndi-free5gc/cndi-free5gc.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      課程簡介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      課程目標
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      課程大綱 &amp; 進度
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      參考教材
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      背景知識
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      評分 &amp; 作業
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意事項
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="doc-member/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Member
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="doc-slide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Slides
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="doc-pratice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="doc-project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Projects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      課程簡介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      課程目標
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      課程大綱 &amp; 進度
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      參考教材
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      背景知識
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      評分 &amp; 作業
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意事項
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="cndi-free5gc">cndi-free5gc</h1>
+<p><img alt="cndi-free5gc" src="image/cndi-main.png" /></p>
+<h2 id="_1">課程簡介</h2>
+<p>本課程以培養 5G 行動通訊人才為目標。核心網路在 5G 通訊網路中扮演著不可或缺的角色，開發網路元件需要具備豐富的領域知識（SDN / Network Programming / OS...）。本課程除了<strong>涵蓋前面提到的知識</strong>以外，更會以淺入深出帶領學生體驗核心網路的開發與知識。</p>
+<p>本課程將以 <a href="https://free5gc.org">free5GC</a> 開源軟體為主體，此軟體為陳志成教授領導開發的核心網路開源軟體，是全世界第一個開源的 5G 核心網路專案，並於 2024 年 9 月 16 日加入全球開源軟體領導組織 — Linux 基金會，為 5G 網路的研究與發展帶來強大的平台與資源。</p>
+<h2 id="_2">課程目標</h2>
+<ol>
+<li>了解什麼是 5G</li>
+<li>成為 5G 開源專案的貢獻者，包含 5G Core / 5G RAN...</li>
+<li>成為 free5GC 的<a href="https://github.com/free5gc/governance/blob/main/CONTRIBUTORS.md">貢獻者</a></li>
+<li>成為 Open-source Project 的貢獻者、維護者或是創立者</li>
+</ol>
+<h2 id="_3">課程大綱 &amp; 進度</h2>
+<div class="cyber-table-wrapper">
+  <table class="cyber-table">
+    <thead>
+      <tr>
+        <th>週</th>
+        <th>日期</th>
+        <th>主題</th>
+        <th>事件</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>2026-09-07</td>
+        <td>Syllabus & Introduction</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>2026-09-14</td>
+        <td>Github, git and dev tool introduction & 4G to 5G</td>
+        <td>PT1 & FPJ</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>2026-09-21</td>
+        <td>5G Architecture</td>
+        <td><strong>PT1 DDL</strong> &amp; PJ1</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>2026-09-28</td>
+        <td><mark>教師節放假</mark></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>2026-10-05</td>
+        <td>free5GC & 5GC Network Functions AMF</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>2026-10-12</td>
+        <td>5GC Network Functions SMF/UPF</td>
+        <td><strong>PJ1 DDL</strong> &amp; PT2</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>2026-10-19</td>
+        <td>5GC Network Functions Other NFs</td>
+        <td>PJ2</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>2026-10-26</td>
+        <td><mark>光復節放假</mark></td>
+        <td><strong>PT2 DDL</strong></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>2026-11-02</td>
+        <td>5GC Deployment - free5GC Compose & Helm</td>
+        <td>Midterm &amp; PT3</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>2026-11-09</td>
+        <td>5G RAN/UE - free-ran-ue</td>
+        <td><strong>PJ2 DDL</strong></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>2026-11-16</td>
+        <td>Concurrent Programming in Go</td>
+        <td><strong>PT3 DDL</strong> &amp; PJ3</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>2026-11-23</td>
+        <td>Unit / Integration Test</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>2026-11-30</td>
+        <td>free5GC IT System</td>
+        <td><strong>FPJP DDL</strong></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>2026-12-07</td>
+        <td>Final Project Discussion</td>
+        <td><strong>PJ3 DDL</strong></td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>2026-12-14</td>
+        <td>Final Project Demo</td>
+        <td><strong>FPJ DDL</strong></td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>2026-12-21</td>
+        <td>Final Project Demo</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>PT：Pratice</li>
+<li>PJ：Project</li>
+<li>FP：Final Project</li>
+<li>FPJP：Final Project Proposal</li>
+<li>DDL：Deadline</li>
+</ul>
+</div>
+<h2 id="_4">參考教材</h2>
+<ol>
+<li><a href="https://free-ran-ue.github.io/doc-5g-core-book/zh/">5G 核心網輕鬆學：free5GC 與 RAN/UE 模擬器</a></li>
+<li><a href="https://www.tenlong.com.tw/products/9781484264720">5G Mobile Core Network: Design, Deployment, Automation, and Testing Strategies</a></li>
+<li><a href="https://www.books.com.tw/products/0010970849?srsltid=AfmBOooPp8AyGCq4LX8M9ByPcjcSVHvmUsl8Q_N4xIW7C4j_dphDs7Y4">EN 帶你入門 5G 核心網路</a></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>參考教材 1 可以直接在網頁看，開放抖內（也算是貢獻者之一？）</li>
+<li>參考教材 2 可以在交大圖書館借閱、或是透過圖書館系統下載電子版，不需要購買。</li>
+<li>參考教材 3 可以在交大圖書館借閱，不需要購買。</li>
+</ul>
+</div>
+<h2 id="_5">背景知識</h2>
+<ul>
+<li>OS</li>
+<li>Network/Socket Programming</li>
+<li>Concurrent Programming</li>
+<li>Golang</li>
+</ul>
+<h2 id="_6">評分 &amp; 作業</h2>
+<ul>
+<li>（15%）Project 1 - free5GC CTF, <code>2026-09-21 ~ 2026-10-12</code></li>
+<li>（15%）Project 2 - Network Service Function, <code>2026-10-19 ~ 2026-11-09</code></li>
+<li>（20%）Project 3 - NR Dual Connection, <code>2026-11-16 ~ 2026-12-07</code></li>
+<li>
+<p>（40%）Final Project 4 - 5Gix</p>
+<ul>
+<li>(10%) Proposal - Final Project Plan, <code>2026-09-14 ~ 2026-11-30</code></li>
+<li>(30%) Presentation, <code>2026-09-14 ~ 2026-12-14</code></li>
+</ul>
+</li>
+<li>
+<p>（10%）Participation - Midterm &amp; Practices</p>
+<ul>
+<li>Midterm 必須參加，不開放補考或是提前考</li>
+<li>
+<p>Practice 不是 1 個 1% 計算，會是 Participation 調整依據</p>
+<ul>
+<li>Practice 1, Installation, <code>2026-09-07 ~ 2026-09-21</code></li>
+<li>Practice 2, NF Writing, <code>2026-10-12 ~ 2026-10-26</code></li>
+<li>Practice 3, ULCL &amp; Traffic Influence, <code>2026-11-02 ~ 2026-11-16</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="_7">注意事項</h2>
+<ul>
+<li>作業基本上都是 Go 語言開發，請大家開始自學！有問題先問 AI 再來找助教或是找我，但我不一定有時間回</li>
+<li>完全不點名，要來不來都行</li>
+<li>作業有問題可以問助教，但不是助教幫你寫，也不是幫你 debug</li>
+<li>真的有貢獻 PR 到 5G 開源專案並被 Merged 的可以加分，但不是 1:1</li>
+<li><strong>嚴禁抄襲</strong>，如果發現抄襲，抄的人與被抄的人學期成績都會有<strong>嚴重</strong>的懲處</li>
+<li>
+<p><strong>嚴禁缺繳</strong>，如果有缺繳，直接當掉（敷衍或是空白視同缺繳）</p>
+<ul>
+<li>Midterm / Practice 不適用此規則</li>
+</ul>
+</li>
+<li>
+<p>補繳規則：</p>
+<ul>
+<li>Practice：不接受任何理由遲交</li>
+<li>
+<p>Project：*70%/week</p>
+<ul>
+<li>2個禮拜就是 70%*70%=49%</li>
+<li>遲交1秒也是遲交，不接受理由（網路卡住、重新上傳但來不及、我有 commit 記錄、我在飛機上飛機誤點、我的時區不一樣、我家炸了）</li>
+</ul>
+</li>
+<li>
+<p>Final Project（含 Proposal）：不接受任何理由遲交</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Email 統一用 e3 站內信，其他不保證回</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Alonza0314. All rights reserved.
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/cndi-free5gc" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.select", "content.tabs.link"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      
+        <script src="javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
