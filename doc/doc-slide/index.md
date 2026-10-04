@@ -4,3 +4,4 @@
 - [W2-2 4G to 5G](slides/W2-2%204G%20to%205G.pdf){:target="_blank"}
 - [W3 5G Architecture](slides/W3%205G%20Architecture.pdf){:target="_blank"}
 - [W5-1 free5GC](slides/W5-1%20free5GC.pdf){:target="_blank"}
+- [W5-2 5GC Network Functions AMF](slides/W5-2%205GC%20Network%20Functions%20AMF.pdf){:target="_blank"}
