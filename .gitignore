@@ -4,3 +4,5 @@ mkdocs-env/
 *.pcap
 
 free-ran-ue.github.io/
+
+.DS_Store
