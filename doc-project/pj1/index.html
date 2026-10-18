@@ -1,0 +1,996 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Open-Source Core Network Design and Implementation">
+      
+      
+        <meta name="author" content="alonza0314">
+      
+      
+        <link rel="canonical" href="https://cndi-free5gc.github.io/doc-project/pj1/">
+      
+      
+      
+      
+      <link rel="icon" href="../../image/cndi.jpg">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+    
+    
+      
+        <title>Project 1 - free5GC CTF - cndi-free5gc</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rajdhani:300,300i,400,400i,700,700i%7CCourier+New:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Rajdhani";--md-code-font:"Courier New"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#project-1-free5gc-ctf" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="cndi-free5gc" class="md-header__button md-logo" aria-label="cndi-free5gc" data-md-component="logo">
+      
+  <img src="../../image/cndi.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            cndi-free5gc
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Project 1 - free5GC CTF
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cndi-free5gc/cndi-free5gc.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cndi-free5gc/cndi-free5gc.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../doc-member/" class="md-tabs__link">
+        
+  
+    
+  
+  Member
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../doc-slide/" class="md-tabs__link">
+        
+  
+    
+  
+  Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../doc-pratice/" class="md-tabs__link">
+        
+  
+    
+  
+  Practices
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+    
+  
+  Projects
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="cndi-free5gc" class="md-nav__button md-logo" aria-label="cndi-free5gc" data-md-component="logo">
+      
+  <img src="../../image/cndi.jpg" alt="logo">
+
+    </a>
+    cndi-free5gc
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cndi-free5gc/cndi-free5gc.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cndi-free5gc/cndi-free5gc.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../doc-member/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Member
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../doc-slide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Slides
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../doc-pratice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Projects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      作業描述
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      作業說明
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="作業說明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ctf" class="md-nav__link">
+    <span class="md-ellipsis">
+      CTF 是個啥？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      作業目標
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      作業小提醒
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="作業小提醒">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      取得額外的通關提示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      繳交方式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-registration-accept-10-pt" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌟 #1 Registration Accept (10 pt)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pdu-session-establishment-reject-with-cause-insufficient-resources-for-specific-slice-and-dnn-20-pt" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌟🌟🌟 #2 PDU Session Establishment Reject with cause Insufficient resources for specific slice and DNN (20 pt)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-mac-verification-failure-20-pt" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌟🌟 #3 MAC Verification Failure (20 pt)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-amf-ngap-id-not-found-25-pt" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌟🌟🌟🌟 #4 AMF: NGAP ID not found (25 pt)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-ue-unexpected-release-25-pt" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌟🌟🌟🌟 #5 UE Unexpected Release (25 pt)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="project-1-free5gc-ctf">Project 1 - free5GC CTF</h1>
+<p><strong>Deadline：2026/10/12</strong></p>
+<div class="toc">
+<ul>
+<li><a href="#project-1-free5gc-ctf">Project 1 - free5GC CTF</a><ul>
+<li><a href="#_1">作業描述</a></li>
+<li><a href="#_2">作業說明</a><ul>
+<li><a href="#ctf">CTF 是個啥？</a></li>
+</ul>
+</li>
+<li><a href="#_3">作業目標</a></li>
+<li><a href="#_4">作業小提醒</a><ul>
+<li><a href="#_5">取得額外的通關提示</a></li>
+<li><a href="#_6">繳交方式</a></li>
+</ul>
+</li>
+<li><a href="#challenges">Challenges</a><ul>
+<li><a href="#1-registration-accept-10-pt">🌟 #1 Registration Accept (10 pt)</a></li>
+<li><a href="#2-pdu-session-establishment-reject-with-cause-insufficient-resources-for-specific-slice-and-dnn-20-pt">🌟🌟🌟 #2 PDU Session Establishment Reject with cause Insufficient resources for specific slice and DNN (20 pt)</a></li>
+<li><a href="#3-mac-verification-failure-20-pt">🌟🌟 #3 MAC Verification Failure (20 pt)</a></li>
+<li><a href="#4-amf-ngap-id-not-found-25-pt">🌟🌟🌟🌟 #4 AMF: NGAP ID not found (25 pt)</a></li>
+<li><a href="#5-ue-unexpected-release-25-pt">🌟🌟🌟🌟 #5 UE Unexpected Release (25 pt)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="_1">作業描述</h2>
+<p>歡迎來到 free5GC World！
+你的角色是負責與客戶對接的 FAE， 當你的客戶放火亂搞系統的時候，請立刻出動解決吧！</p>
+<h2 id="_2">作業說明</h2>
+<p>本次作業讓大家扮演 FAE 的角色，透過 CTF 的方式重現 FAE 的解題日常。你必須想方設法重現題目所描述的情境，當情境出發點成功，就能在 5GC 的日誌中獲取 Flag。</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul>
+<li>Flag 的格式固定為 <code>You got a Flag free5GC_CTF{XXX}</code></li>
+<li>Flag 出現的時候不一定是 Error 喔！</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<h3 id="ctf">CTF 是個啥？</h3>
+<p>奪旗（英語：Capture the flag，簡稱「CTF」）在電腦安全中是一種活動，當中會將「旗子」秘密地埋藏於有目的的易受攻擊的程式或網站。參賽者從其他參賽者（攻／防式奪旗）或主辦方（危難式挑戰）偷去旗子。奪旗活動衍生出數種變體，當中包括於硬體裝置內隱藏旗子。相關比賽可透過線上或實體形式進行，亦可分為進階和入門兩種層級。此遊戲乃基於同名傳統戶外運動而設計。
+-- <a href="https://zh.wikipedia.org/zh-tw/%E5%A5%AA%E6%97%97_(%E7%B6%B2%E8%B7%AF%E5%AE%89%E5%85%A8)">wikipedia</a></p>
+</div>
+<h2 id="_3">作業目標</h2>
+<ul>
+<li>培養大家對於除錯的能力</li>
+<li>激發大家對於 5G 的興趣</li>
+</ul>
+<h2 id="_4">作業小提醒</h2>
+<ul>
+<li>所有題目使用同一份 <a href="https://gist.github.com/Alonza0314/2dccb6eee64a3030fb251ee6372abc7e">executable file</a>，該檔案是我們修改過後的 free5GC 應用：<ul>
+<li>包含所有需要的網路元件功能</li>
+<li>不依賴 gtp5g</li>
+<li>不支援 data plane 封包轉送</li>
+<li>在特定場景下會使用 log 輸出 Flag。</li>
+<li>執行 executable file 之前請確保系統已安裝 Docker。</li>
+<li>Executable file 啟動時會將 subscription data 寫入 database（它會啟動臨時的 MongoDB Container），database 的資料請參考：<a href="https://github.com/free5gc/free5gc/blob/main/test/consumerTestdata/UDR/TestRegistrationProcedure/RegistrationProcedure.go#L22">data</a></li>
+</ul>
+</li>
+<li>請使用以下工具解題：<ul>
+<li><a href="https://github.com/free-ran-ue/free-ran-ue">free-ran-ue</a><ul>
+<li>因為沒有本次作業沒有包含 data plane，所以直接在跟核網同一台機器上面跑就好</li>
+</ul>
+</li>
+<li>改寫 <code>free5gc/test</code> 下的測試檔案，需要把 MongoDB 與啟動 NF 的 init 程式都註解掉再加上一點點🤏改動</li>
+</ul>
+</li>
+<li>
+<p>在某些情況下，你可能需要修改 database 的資料，你可以選擇使用</p>
+<ul>
+<li><code>docker exec -it &lt;container_id&gt; mongosh</code></li>
+<li>或是查看 mongodb container expose 的 port，然後使用 webconsole 連入：
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>CONTAINER<span class="w"> </span>ID<span class="w">   </span>IMAGE<span class="w">                            </span>COMMAND<span class="w">                   </span>CREATED<span class="w">          </span>STATUS<span class="w">          </span>PORTS<span class="w">                                             </span>NAMES
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>c6372a5816c0<span class="w">   </span>mongo:6.0.3<span class="w">                      </span><span class="s2">"docker-entrypoint.s…"</span><span class="w">   </span><span class="m">13</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">13</span><span class="w"> </span>seconds<span class="w">   </span><span class="m">0</span>.0.0.0:34099-&gt;27017/tcp,<span class="w"> </span><span class="o">[</span>::<span class="o">]</span>:34099-&gt;27017/tcp<span class="w">   </span>quirky_ptolemy
+</span></code></pre></div></li>
+<li>更改位置為：<code>webconsole/config/webuicfg.yaml</code>
+    <div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mongodb://localhost:&lt;這裡&gt;</span><span class="w"> </span><span class="c1"># a valid URL of the mongodb</span>
+</span></code></pre></div></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li>請注意每一次執行核網的時候，DB 容器的暴露 port 都會不一樣，請每一次打都要確認並在 <code>webcfg.yaml</code> 做修改</li>
+<li>每一次打 flag 的時候都需要建立 UE，預設的 UE 只有 test.sh 可以使用</li>
+</ul>
+</div>
+</li>
+</ul>
+<h3 id="_5">取得額外的通關提示</h3>
+<p>為了避免同學無法解出難度較高的題目，可以來信給助教用部分的扣分換取提示：
+- 題目二~五各有兩個提示，每個題目的提示一需要 -3 分，提示二需要 -5 分
+- 助教會在盡量來信當日的 23:59 前回信給予提示，所以不建議同學拖到最後才開始解題
+- 為了方便統計，請大家使用“<strong>e3站內信</strong>”，其它方式不回复哦</p>
+<h3 id="_6">繳交方式</h3>
+<ul>
+<li>從 E3 送出你的答案，請將答案彙整成<strong>一份 PDF</strong>，PDF 內需包含：<ul>
+<li>Flag</li>
+<li>WriteUp <ul>
+<li>敘述流程<ul>
+<li>做了什麼改動？為什麼要做這個改動？</li>
+<li>對AI下了什麼指令？</li>
+</ul>
+</li>
+<li>核網截圖</li>
+<li>pcap截圖（有的話）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如果內容太亂看不懂的話視同 0 分</li>
+</ul>
+<h2 id="challenges">Challenges</h2>
+<h3 id="1-registration-accept-10-pt">🌟 #1 Registration Accept (10 pt)</h3>
+<p>終於完成客戶端核心網路的安裝了，讓我們使用 UE/RAN 模擬器簡單驗證是否能透過核網順利上線吧！</p>
+<h3 id="2-pdu-session-establishment-reject-with-cause-insufficient-resources-for-specific-slice-and-dnn-20-pt">🌟🌟🌟 #2 PDU Session Establishment Reject with cause <code>Insufficient resources for specific slice and DNN</code> (20 pt)</h3>
+<p>某天你在下班前收到了客戶開的 ticket，ticket 中沒有問題的明確描述，只知道他的 UE 突然無法建立 PDU Session。
+當你透過 ssh 連過去救火卻發現客戶偷偷用了 mongosh 命令亂搞，即便我們的產品使用手冊中明確的表達「所有資料更動應該透過 OAM 系統進行操作」...🔥🔥🔥</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Cause #67 - Insufficient resources for specific slice and DNN</p>
+<p>This 5GSM cause is by the network to indicate that the requested service cannot be provided due to insufficient resources for specific slice and DNN or maximum group data rate on a 5G VN group identified by a specific slice and DNN has been exceeded.</p>
+<p>-- <a href="https://www.tech-invite.com/3m24/toc/tinv-3gpp-24-501_zzs.html">https://www.tech-invite.com/3m24/toc/tinv-3gpp-24-501_zzs.html</a></p>
+</div>
+<p>All in One 5GC 的 SMF Config 如下：</p>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">SmfConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">Config</span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">        </span><span class="nx">Info</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">Info</span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">            </span><span class="nx">Version</span><span class="p">:</span><span class="w">     </span><span class="s">"1.0.7"</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">            </span><span class="nx">Description</span><span class="p">:</span><span class="w"> </span><span class="s">"SMF initial single test configuration"</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="nx">Configuration</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">Configuration</span><span class="p">{</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">            </span><span class="nx">SmfName</span><span class="p">:</span><span class="w"> </span><span class="s">"SMF"</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">            </span><span class="nx">Sbi</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">Sbi</span><span class="p">{</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">                </span><span class="nx">Scheme</span><span class="p">:</span><span class="w">       </span><span class="s">"http"</span><span class="p">,</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">                </span><span class="nx">RegisterIPv4</span><span class="p">:</span><span class="w"> </span><span class="s">"127.0.0.2"</span><span class="p">,</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">                </span><span class="nx">BindingIPv4</span><span class="p">:</span><span class="w">  </span><span class="s">"127.0.0.2"</span><span class="p">,</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">                </span><span class="nx">Port</span><span class="p">:</span><span class="w">         </span><span class="mi">8000</span><span class="p">,</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">                </span><span class="nx">Tls</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">Tls</span><span class="p">{</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">                    </span><span class="nx">Pem</span><span class="p">:</span><span class="w"> </span><span class="s">"cert/smf.pem"</span><span class="p">,</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">                    </span><span class="nx">Key</span><span class="p">:</span><span class="w"> </span><span class="s">"cert/smf.key"</span><span class="p">,</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">            </span><span class="nx">ServiceNameList</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">                </span><span class="s">"nsmf-pdusession"</span><span class="p">,</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">                </span><span class="s">"nsmf-event-exposure"</span><span class="p">,</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">                </span><span class="s">"nsmf-oam"</span><span class="p">,</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">            </span><span class="nx">SNssaiInfo</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">SnssaiInfoItem</span><span class="p">{{</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">                </span><span class="nx">SNssai</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">models</span><span class="p">.</span><span class="nx">Snssai</span><span class="p">{</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">                    </span><span class="nx">Sst</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">                    </span><span class="nx">Sd</span><span class="p">:</span><span class="w">  </span><span class="s">"fedcba"</span><span class="p">,</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">                </span><span class="nx">DnnInfos</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">SnssaiDnnInfoItem</span><span class="p">{{</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">                    </span><span class="nx">Dnn</span><span class="p">:</span><span class="w"> </span><span class="s">"internet"</span><span class="p">,</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">                    </span><span class="nx">DNS</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">DNS</span><span class="p">{</span>
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">                        </span><span class="nx">IPv4Addr</span><span class="p">:</span><span class="w"> </span><span class="s">"8.8.8.8"</span><span class="p">,</span>
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">                        </span><span class="nx">IPv6Addr</span><span class="p">:</span><span class="w"> </span><span class="s">"2001:4860:4860::8888"</span><span class="p">,</span>
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">                    </span><span class="p">},</span>
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">                </span><span class="p">}},</span>
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">            </span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">                </span><span class="nx">SNssai</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">models</span><span class="p">.</span><span class="nx">Snssai</span><span class="p">{</span>
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">                    </span><span class="nx">Sst</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">                    </span><span class="nx">Sd</span><span class="p">:</span><span class="w">  </span><span class="s">"010203"</span><span class="p">,</span>
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="w">                </span><span class="nx">DnnInfos</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">SnssaiDnnInfoItem</span><span class="p">{{</span>
+</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w">                    </span><span class="nx">Dnn</span><span class="p">:</span><span class="w"> </span><span class="s">"internet"</span><span class="p">,</span>
+</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a><span class="w">                    </span><span class="nx">DNS</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">DNS</span><span class="p">{</span>
+</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="w">                        </span><span class="nx">IPv4Addr</span><span class="p">:</span><span class="w"> </span><span class="s">"8.8.8.8"</span><span class="p">,</span>
+</span><span id="__span-2-44"><a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="w">                        </span><span class="nx">IPv6Addr</span><span class="p">:</span><span class="w"> </span><span class="s">"2001:4860:4860::8888"</span><span class="p">,</span>
+</span><span id="__span-2-45"><a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a><span class="w">                    </span><span class="p">},</span>
+</span><span id="__span-2-46"><a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a><span class="w">                </span><span class="p">}},</span>
+</span><span id="__span-2-47"><a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a><span class="w">            </span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-48"><a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a><span class="w">                </span><span class="nx">SNssai</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">models</span><span class="p">.</span><span class="nx">Snssai</span><span class="p">{</span>
+</span><span id="__span-2-49"><a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a><span class="w">                    </span><span class="nx">Sst</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-2-50"><a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a><span class="w">                    </span><span class="nx">Sd</span><span class="p">:</span><span class="w">  </span><span class="s">"112233"</span><span class="p">,</span>
+</span><span id="__span-2-51"><a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-2-52"><a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a><span class="w">                </span><span class="nx">DnnInfos</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">SnssaiDnnInfoItem</span><span class="p">{</span>
+</span><span id="__span-2-53"><a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a><span class="w">                    </span><span class="p">{</span>
+</span><span id="__span-2-54"><a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a><span class="w">                        </span><span class="nx">Dnn</span><span class="p">:</span><span class="w"> </span><span class="s">"internet"</span><span class="p">,</span>
+</span><span id="__span-2-55"><a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a><span class="w">                        </span><span class="nx">DNS</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">DNS</span><span class="p">{</span>
+</span><span id="__span-2-56"><a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a><span class="w">                            </span><span class="nx">IPv4Addr</span><span class="p">:</span><span class="w"> </span><span class="s">"8.8.8.8"</span><span class="p">,</span>
+</span><span id="__span-2-57"><a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a><span class="w">                            </span><span class="nx">IPv6Addr</span><span class="p">:</span><span class="w"> </span><span class="s">"2001:4860:4860::8888"</span><span class="p">,</span>
+</span><span id="__span-2-58"><a id="__codelineno-2-58" name="__codelineno-2-58" href="#__codelineno-2-58"></a><span class="w">                        </span><span class="p">},</span>
+</span><span id="__span-2-59"><a id="__codelineno-2-59" name="__codelineno-2-59" href="#__codelineno-2-59"></a><span class="w">                    </span><span class="p">},</span>
+</span><span id="__span-2-60"><a id="__codelineno-2-60" name="__codelineno-2-60" href="#__codelineno-2-60"></a><span class="w">                    </span><span class="p">{</span>
+</span><span id="__span-2-61"><a id="__codelineno-2-61" name="__codelineno-2-61" href="#__codelineno-2-61"></a><span class="w">                        </span><span class="nx">Dnn</span><span class="p">:</span><span class="w"> </span><span class="s">"internet2"</span><span class="p">,</span>
+</span><span id="__span-2-62"><a id="__codelineno-2-62" name="__codelineno-2-62" href="#__codelineno-2-62"></a><span class="w">                        </span><span class="nx">DNS</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">DNS</span><span class="p">{</span>
+</span><span id="__span-2-63"><a id="__codelineno-2-63" name="__codelineno-2-63" href="#__codelineno-2-63"></a><span class="w">                            </span><span class="nx">IPv4Addr</span><span class="p">:</span><span class="w"> </span><span class="s">"8.8.8.8"</span><span class="p">,</span>
+</span><span id="__span-2-64"><a id="__codelineno-2-64" name="__codelineno-2-64" href="#__codelineno-2-64"></a><span class="w">                            </span><span class="nx">IPv6Addr</span><span class="p">:</span><span class="w"> </span><span class="s">"2001:4860:4860::8888"</span><span class="p">,</span>
+</span><span id="__span-2-65"><a id="__codelineno-2-65" name="__codelineno-2-65" href="#__codelineno-2-65"></a><span class="w">                        </span><span class="p">},</span>
+</span><span id="__span-2-66"><a id="__codelineno-2-66" name="__codelineno-2-66" href="#__codelineno-2-66"></a><span class="w">                    </span><span class="p">},</span>
+</span><span id="__span-2-67"><a id="__codelineno-2-67" name="__codelineno-2-67" href="#__codelineno-2-67"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-2-68"><a id="__codelineno-2-68" name="__codelineno-2-68" href="#__codelineno-2-68"></a><span class="w">            </span><span class="p">}},</span>
+</span><span id="__span-2-69"><a id="__codelineno-2-69" name="__codelineno-2-69" href="#__codelineno-2-69"></a><span class="w">            </span><span class="nx">PFCP</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">PFCP</span><span class="p">{</span>
+</span><span id="__span-2-70"><a id="__codelineno-2-70" name="__codelineno-2-70" href="#__codelineno-2-70"></a><span class="w">                </span><span class="nx">NodeID</span><span class="p">:</span><span class="w">       </span><span class="s">"127.0.0.113"</span><span class="p">,</span>
+</span><span id="__span-2-71"><a id="__codelineno-2-71" name="__codelineno-2-71" href="#__codelineno-2-71"></a><span class="w">                </span><span class="nx">ExternalAddr</span><span class="p">:</span><span class="w"> </span><span class="s">"127.0.0.113"</span><span class="p">,</span>
+</span><span id="__span-2-72"><a id="__codelineno-2-72" name="__codelineno-2-72" href="#__codelineno-2-72"></a><span class="w">                </span><span class="nx">ListenAddr</span><span class="p">:</span><span class="w">   </span><span class="s">"127.0.0.113"</span><span class="p">,</span>
+</span><span id="__span-2-73"><a id="__codelineno-2-73" name="__codelineno-2-73" href="#__codelineno-2-73"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-2-74"><a id="__codelineno-2-74" name="__codelineno-2-74" href="#__codelineno-2-74"></a><span class="w">            </span><span class="nx">Locality</span><span class="p">:</span><span class="w"> </span><span class="s">"area1"</span><span class="p">,</span>
+</span><span id="__span-2-75"><a id="__codelineno-2-75" name="__codelineno-2-75" href="#__codelineno-2-75"></a><span class="w">            </span><span class="nx">UserPlaneInformation</span><span class="p">:</span><span class="w"> </span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">UserPlaneInformation</span><span class="p">{</span>
+</span><span id="__span-2-76"><a id="__codelineno-2-76" name="__codelineno-2-76" href="#__codelineno-2-76"></a><span class="w">                </span><span class="nx">UPNodes</span><span class="p">:</span><span class="w"> </span><span class="kt">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">UPNode</span><span class="p">{</span>
+</span><span id="__span-2-77"><a id="__codelineno-2-77" name="__codelineno-2-77" href="#__codelineno-2-77"></a><span class="w">                    </span><span class="s">"gNB1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-78"><a id="__codelineno-2-78" name="__codelineno-2-78" href="#__codelineno-2-78"></a><span class="w">                        </span><span class="nx">Type</span><span class="p">:</span><span class="w"> </span><span class="s">"AN"</span><span class="p">,</span>
+</span><span id="__span-2-79"><a id="__codelineno-2-79" name="__codelineno-2-79" href="#__codelineno-2-79"></a><span class="w">                        </span><span class="nx">ANIP</span><span class="p">:</span><span class="w"> </span><span class="s">"192.188.2.3"</span><span class="p">,</span>
+</span><span id="__span-2-80"><a id="__codelineno-2-80" name="__codelineno-2-80" href="#__codelineno-2-80"></a><span class="w">                    </span><span class="p">},</span>
+</span><span id="__span-2-81"><a id="__codelineno-2-81" name="__codelineno-2-81" href="#__codelineno-2-81"></a><span class="w">                    </span><span class="s">"UPF"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-82"><a id="__codelineno-2-82" name="__codelineno-2-82" href="#__codelineno-2-82"></a><span class="w">                        </span><span class="nx">Type</span><span class="p">:</span><span class="w">   </span><span class="s">"UPF"</span><span class="p">,</span>
+</span><span id="__span-2-83"><a id="__codelineno-2-83" name="__codelineno-2-83" href="#__codelineno-2-83"></a><span class="w">                        </span><span class="nx">NodeID</span><span class="p">:</span><span class="w"> </span><span class="s">"127.0.0.111"</span><span class="p">,</span>
+</span><span id="__span-2-84"><a id="__codelineno-2-84" name="__codelineno-2-84" href="#__codelineno-2-84"></a><span class="w">                        </span><span class="nx">Addr</span><span class="p">:</span><span class="w">   </span><span class="s">"127.0.0.111"</span><span class="p">,</span>
+</span><span id="__span-2-85"><a id="__codelineno-2-85" name="__codelineno-2-85" href="#__codelineno-2-85"></a><span class="w">                        </span><span class="nx">SNssaiInfos</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">SnssaiUpfInfoItem</span><span class="p">{{</span>
+</span><span id="__span-2-86"><a id="__codelineno-2-86" name="__codelineno-2-86" href="#__codelineno-2-86"></a><span class="w">                            </span><span class="nx">SNssai</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">models</span><span class="p">.</span><span class="nx">Snssai</span><span class="p">{</span>
+</span><span id="__span-2-87"><a id="__codelineno-2-87" name="__codelineno-2-87" href="#__codelineno-2-87"></a><span class="w">                                </span><span class="nx">Sst</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-2-88"><a id="__codelineno-2-88" name="__codelineno-2-88" href="#__codelineno-2-88"></a><span class="w">                                </span><span class="nx">Sd</span><span class="p">:</span><span class="w">  </span><span class="s">"fedcba"</span><span class="p">,</span>
+</span><span id="__span-2-89"><a id="__codelineno-2-89" name="__codelineno-2-89" href="#__codelineno-2-89"></a><span class="w">                            </span><span class="p">},</span>
+</span><span id="__span-2-90"><a id="__codelineno-2-90" name="__codelineno-2-90" href="#__codelineno-2-90"></a><span class="w">                            </span><span class="nx">DnnUpfInfoList</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">DnnUpfInfoItem</span><span class="p">{{</span>
+</span><span id="__span-2-91"><a id="__codelineno-2-91" name="__codelineno-2-91" href="#__codelineno-2-91"></a><span class="w">                                </span><span class="nx">Dnn</span><span class="p">:</span><span class="w">      </span><span class="s">"internet"</span><span class="p">,</span>
+</span><span id="__span-2-92"><a id="__codelineno-2-92" name="__codelineno-2-92" href="#__codelineno-2-92"></a><span class="w">                                </span><span class="nx">DnaiList</span><span class="p">:</span><span class="w"> </span><span class="nx">dnaiList</span><span class="p">,</span>
+</span><span id="__span-2-93"><a id="__codelineno-2-93" name="__codelineno-2-93" href="#__codelineno-2-93"></a><span class="w">                                </span><span class="nx">Pools</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">UEIPPool</span><span class="p">{{</span>
+</span><span id="__span-2-94"><a id="__codelineno-2-94" name="__codelineno-2-94" href="#__codelineno-2-94"></a><span class="w">                                    </span><span class="nx">Cidr</span><span class="p">:</span><span class="w"> </span><span class="s">"10.60.0.0/24"</span><span class="p">,</span>
+</span><span id="__span-2-95"><a id="__codelineno-2-95" name="__codelineno-2-95" href="#__codelineno-2-95"></a><span class="w">                                </span><span class="p">}},</span>
+</span><span id="__span-2-96"><a id="__codelineno-2-96" name="__codelineno-2-96" href="#__codelineno-2-96"></a><span class="w">                                </span><span class="nx">StaticPools</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">UEIPPool</span><span class="p">{{</span>
+</span><span id="__span-2-97"><a id="__codelineno-2-97" name="__codelineno-2-97" href="#__codelineno-2-97"></a><span class="w">                                    </span><span class="nx">Cidr</span><span class="p">:</span><span class="w"> </span><span class="s">"10.60.1.0/24"</span><span class="p">,</span>
+</span><span id="__span-2-98"><a id="__codelineno-2-98" name="__codelineno-2-98" href="#__codelineno-2-98"></a><span class="w">                                </span><span class="p">}},</span>
+</span><span id="__span-2-99"><a id="__codelineno-2-99" name="__codelineno-2-99" href="#__codelineno-2-99"></a><span class="w">                            </span><span class="p">}},</span>
+</span><span id="__span-2-100"><a id="__codelineno-2-100" name="__codelineno-2-100" href="#__codelineno-2-100"></a><span class="w">                        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-101"><a id="__codelineno-2-101" name="__codelineno-2-101" href="#__codelineno-2-101"></a><span class="w">                            </span><span class="nx">SNssai</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">models</span><span class="p">.</span><span class="nx">Snssai</span><span class="p">{</span>
+</span><span id="__span-2-102"><a id="__codelineno-2-102" name="__codelineno-2-102" href="#__codelineno-2-102"></a><span class="w">                                </span><span class="nx">Sst</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-2-103"><a id="__codelineno-2-103" name="__codelineno-2-103" href="#__codelineno-2-103"></a><span class="w">                                </span><span class="nx">Sd</span><span class="p">:</span><span class="w">  </span><span class="s">"010203"</span><span class="p">,</span>
+</span><span id="__span-2-104"><a id="__codelineno-2-104" name="__codelineno-2-104" href="#__codelineno-2-104"></a><span class="w">                            </span><span class="p">},</span>
+</span><span id="__span-2-105"><a id="__codelineno-2-105" name="__codelineno-2-105" href="#__codelineno-2-105"></a><span class="w">                            </span><span class="nx">DnnUpfInfoList</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">DnnUpfInfoItem</span><span class="p">{{</span>
+</span><span id="__span-2-106"><a id="__codelineno-2-106" name="__codelineno-2-106" href="#__codelineno-2-106"></a><span class="w">                                </span><span class="nx">Dnn</span><span class="p">:</span><span class="w">      </span><span class="s">"internet"</span><span class="p">,</span>
+</span><span id="__span-2-107"><a id="__codelineno-2-107" name="__codelineno-2-107" href="#__codelineno-2-107"></a><span class="w">                                </span><span class="nx">Pools</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">UEIPPool</span><span class="p">{{</span>
+</span><span id="__span-2-108"><a id="__codelineno-2-108" name="__codelineno-2-108" href="#__codelineno-2-108"></a><span class="w">                                    </span><span class="nx">Cidr</span><span class="p">:</span><span class="w"> </span><span class="s">"10.62.0.0/24"</span><span class="p">,</span>
+</span><span id="__span-2-109"><a id="__codelineno-2-109" name="__codelineno-2-109" href="#__codelineno-2-109"></a><span class="w">                                </span><span class="p">}},</span>
+</span><span id="__span-2-110"><a id="__codelineno-2-110" name="__codelineno-2-110" href="#__codelineno-2-110"></a><span class="w">                                </span><span class="nx">StaticPools</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">UEIPPool</span><span class="p">{{</span>
+</span><span id="__span-2-111"><a id="__codelineno-2-111" name="__codelineno-2-111" href="#__codelineno-2-111"></a><span class="w">                                    </span><span class="nx">Cidr</span><span class="p">:</span><span class="w"> </span><span class="s">"10.62.1.0/24"</span><span class="p">,</span>
+</span><span id="__span-2-112"><a id="__codelineno-2-112" name="__codelineno-2-112" href="#__codelineno-2-112"></a><span class="w">                                </span><span class="p">}},</span>
+</span><span id="__span-2-113"><a id="__codelineno-2-113" name="__codelineno-2-113" href="#__codelineno-2-113"></a><span class="w">                            </span><span class="p">}},</span>
+</span><span id="__span-2-114"><a id="__codelineno-2-114" name="__codelineno-2-114" href="#__codelineno-2-114"></a><span class="w">                        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-115"><a id="__codelineno-2-115" name="__codelineno-2-115" href="#__codelineno-2-115"></a><span class="w">                            </span><span class="nx">SNssai</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">models</span><span class="p">.</span><span class="nx">Snssai</span><span class="p">{</span>
+</span><span id="__span-2-116"><a id="__codelineno-2-116" name="__codelineno-2-116" href="#__codelineno-2-116"></a><span class="w">                                </span><span class="nx">Sst</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-2-117"><a id="__codelineno-2-117" name="__codelineno-2-117" href="#__codelineno-2-117"></a><span class="w">                                </span><span class="nx">Sd</span><span class="p">:</span><span class="w">  </span><span class="s">"112233"</span><span class="p">,</span>
+</span><span id="__span-2-118"><a id="__codelineno-2-118" name="__codelineno-2-118" href="#__codelineno-2-118"></a><span class="w">                            </span><span class="p">},</span>
+</span><span id="__span-2-119"><a id="__codelineno-2-119" name="__codelineno-2-119" href="#__codelineno-2-119"></a><span class="w">                            </span><span class="nx">DnnUpfInfoList</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">DnnUpfInfoItem</span><span class="p">{{</span>
+</span><span id="__span-2-120"><a id="__codelineno-2-120" name="__codelineno-2-120" href="#__codelineno-2-120"></a><span class="w">                                </span><span class="nx">Dnn</span><span class="p">:</span><span class="w"> </span><span class="s">"internet"</span><span class="p">,</span>
+</span><span id="__span-2-121"><a id="__codelineno-2-121" name="__codelineno-2-121" href="#__codelineno-2-121"></a><span class="w">                                </span><span class="nx">Pools</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">UEIPPool</span><span class="p">{{</span>
+</span><span id="__span-2-122"><a id="__codelineno-2-122" name="__codelineno-2-122" href="#__codelineno-2-122"></a><span class="w">                                    </span><span class="nx">Cidr</span><span class="p">:</span><span class="w"> </span><span class="s">"10.61.0.0/24"</span><span class="p">,</span>
+</span><span id="__span-2-123"><a id="__codelineno-2-123" name="__codelineno-2-123" href="#__codelineno-2-123"></a><span class="w">                                </span><span class="p">}},</span>
+</span><span id="__span-2-124"><a id="__codelineno-2-124" name="__codelineno-2-124" href="#__codelineno-2-124"></a><span class="w">                                </span><span class="nx">StaticPools</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">UEIPPool</span><span class="p">{{</span>
+</span><span id="__span-2-125"><a id="__codelineno-2-125" name="__codelineno-2-125" href="#__codelineno-2-125"></a><span class="w">                                    </span><span class="nx">Cidr</span><span class="p">:</span><span class="w"> </span><span class="s">"10.61.1.0/24"</span><span class="p">,</span>
+</span><span id="__span-2-126"><a id="__codelineno-2-126" name="__codelineno-2-126" href="#__codelineno-2-126"></a><span class="w">                                </span><span class="p">}},</span>
+</span><span id="__span-2-127"><a id="__codelineno-2-127" name="__codelineno-2-127" href="#__codelineno-2-127"></a><span class="w">                            </span><span class="p">}},</span>
+</span><span id="__span-2-128"><a id="__codelineno-2-128" name="__codelineno-2-128" href="#__codelineno-2-128"></a><span class="w">                        </span><span class="p">}},</span>
+</span><span id="__span-2-129"><a id="__codelineno-2-129" name="__codelineno-2-129" href="#__codelineno-2-129"></a><span class="w">                        </span><span class="nx">InterfaceUpfInfoList</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">InterfaceUpfInfoItem</span><span class="p">{{</span>
+</span><span id="__span-2-130"><a id="__codelineno-2-130" name="__codelineno-2-130" href="#__codelineno-2-130"></a><span class="w">                            </span><span class="nx">InterfaceType</span><span class="p">:</span><span class="w"> </span><span class="s">"N3"</span><span class="p">,</span>
+</span><span id="__span-2-131"><a id="__codelineno-2-131" name="__codelineno-2-131" href="#__codelineno-2-131"></a><span class="w">                            </span><span class="nx">Endpoints</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span>
+</span><span id="__span-2-132"><a id="__codelineno-2-132" name="__codelineno-2-132" href="#__codelineno-2-132"></a><span class="w">                                </span><span class="s">"127.0.0.102"</span><span class="p">,</span>
+</span><span id="__span-2-133"><a id="__codelineno-2-133" name="__codelineno-2-133" href="#__codelineno-2-133"></a><span class="w">                            </span><span class="p">},</span>
+</span><span id="__span-2-134"><a id="__codelineno-2-134" name="__codelineno-2-134" href="#__codelineno-2-134"></a><span class="w">                            </span><span class="nx">NetworkInstances</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span>
+</span><span id="__span-2-135"><a id="__codelineno-2-135" name="__codelineno-2-135" href="#__codelineno-2-135"></a><span class="w">                                </span><span class="s">"internet"</span><span class="p">,</span>
+</span><span id="__span-2-136"><a id="__codelineno-2-136" name="__codelineno-2-136" href="#__codelineno-2-136"></a><span class="w">                            </span><span class="p">},</span>
+</span><span id="__span-2-137"><a id="__codelineno-2-137" name="__codelineno-2-137" href="#__codelineno-2-137"></a><span class="w">                        </span><span class="p">}},</span>
+</span><span id="__span-2-138"><a id="__codelineno-2-138" name="__codelineno-2-138" href="#__codelineno-2-138"></a><span class="w">                    </span><span class="p">},</span>
+</span><span id="__span-2-139"><a id="__codelineno-2-139" name="__codelineno-2-139" href="#__codelineno-2-139"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-2-140"><a id="__codelineno-2-140" name="__codelineno-2-140" href="#__codelineno-2-140"></a><span class="w">                </span><span class="nx">Links</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">UPLink</span><span class="p">{{</span>
+</span><span id="__span-2-141"><a id="__codelineno-2-141" name="__codelineno-2-141" href="#__codelineno-2-141"></a><span class="w">                    </span><span class="nx">A</span><span class="p">:</span><span class="w"> </span><span class="s">"gNB1"</span><span class="p">,</span>
+</span><span id="__span-2-142"><a id="__codelineno-2-142" name="__codelineno-2-142" href="#__codelineno-2-142"></a><span class="w">                    </span><span class="nx">B</span><span class="p">:</span><span class="w"> </span><span class="s">"UPF"</span><span class="p">,</span>
+</span><span id="__span-2-143"><a id="__codelineno-2-143" name="__codelineno-2-143" href="#__codelineno-2-143"></a><span class="w">                </span><span class="p">}},</span>
+</span><span id="__span-2-144"><a id="__codelineno-2-144" name="__codelineno-2-144" href="#__codelineno-2-144"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-2-145"><a id="__codelineno-2-145" name="__codelineno-2-145" href="#__codelineno-2-145"></a><span class="w">            </span><span class="nx">T3591</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">TimerValue</span><span class="p">{</span>
+</span><span id="__span-2-146"><a id="__codelineno-2-146" name="__codelineno-2-146" href="#__codelineno-2-146"></a><span class="w">                </span><span class="nx">Enable</span><span class="p">:</span><span class="w">        </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-2-147"><a id="__codelineno-2-147" name="__codelineno-2-147" href="#__codelineno-2-147"></a><span class="w">                </span><span class="nx">ExpireTime</span><span class="p">:</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">,</span>
+</span><span id="__span-2-148"><a id="__codelineno-2-148" name="__codelineno-2-148" href="#__codelineno-2-148"></a><span class="w">                </span><span class="nx">MaxRetryTimes</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-2-149"><a id="__codelineno-2-149" name="__codelineno-2-149" href="#__codelineno-2-149"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-2-150"><a id="__codelineno-2-150" name="__codelineno-2-150" href="#__codelineno-2-150"></a><span class="w">            </span><span class="nx">T3592</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">TimerValue</span><span class="p">{</span>
+</span><span id="__span-2-151"><a id="__codelineno-2-151" name="__codelineno-2-151" href="#__codelineno-2-151"></a><span class="w">                </span><span class="nx">Enable</span><span class="p">:</span><span class="w">        </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-2-152"><a id="__codelineno-2-152" name="__codelineno-2-152" href="#__codelineno-2-152"></a><span class="w">                </span><span class="nx">ExpireTime</span><span class="p">:</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">,</span>
+</span><span id="__span-2-153"><a id="__codelineno-2-153" name="__codelineno-2-153" href="#__codelineno-2-153"></a><span class="w">                </span><span class="nx">MaxRetryTimes</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-2-154"><a id="__codelineno-2-154" name="__codelineno-2-154" href="#__codelineno-2-154"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-2-155"><a id="__codelineno-2-155" name="__codelineno-2-155" href="#__codelineno-2-155"></a><span class="w">            </span><span class="nx">NrfUri</span><span class="p">:</span><span class="w">       </span><span class="s">"http://127.0.0.10:8000"</span><span class="p">,</span>
+</span><span id="__span-2-156"><a id="__codelineno-2-156" name="__codelineno-2-156" href="#__codelineno-2-156"></a><span class="w">            </span><span class="nx">NrfCertPem</span><span class="p">:</span><span class="w">   </span><span class="s">"../cert/nrf.pem"</span><span class="p">,</span>
+</span><span id="__span-2-157"><a id="__codelineno-2-157" name="__codelineno-2-157" href="#__codelineno-2-157"></a><span class="w">            </span><span class="nx">UrrPeriod</span><span class="p">:</span><span class="w">    </span><span class="mi">30</span><span class="p">,</span>
+</span><span id="__span-2-158"><a id="__codelineno-2-158" name="__codelineno-2-158" href="#__codelineno-2-158"></a><span class="w">            </span><span class="nx">UrrThreshold</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span>
+</span><span id="__span-2-159"><a id="__codelineno-2-159" name="__codelineno-2-159" href="#__codelineno-2-159"></a><span class="w">            </span><span class="nx">PLMNList</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">PlmnID</span><span class="p">{</span>
+</span><span id="__span-2-160"><a id="__codelineno-2-160" name="__codelineno-2-160" href="#__codelineno-2-160"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-2-161"><a id="__codelineno-2-161" name="__codelineno-2-161" href="#__codelineno-2-161"></a><span class="w">                    </span><span class="nx">Mcc</span><span class="p">:</span><span class="w"> </span><span class="s">"208"</span><span class="p">,</span>
+</span><span id="__span-2-162"><a id="__codelineno-2-162" name="__codelineno-2-162" href="#__codelineno-2-162"></a><span class="w">                    </span><span class="nx">Mnc</span><span class="p">:</span><span class="w"> </span><span class="s">"93"</span><span class="p">,</span>
+</span><span id="__span-2-163"><a id="__codelineno-2-163" name="__codelineno-2-163" href="#__codelineno-2-163"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-2-164"><a id="__codelineno-2-164" name="__codelineno-2-164" href="#__codelineno-2-164"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-2-165"><a id="__codelineno-2-165" name="__codelineno-2-165" href="#__codelineno-2-165"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-2-166"><a id="__codelineno-2-166" name="__codelineno-2-166" href="#__codelineno-2-166"></a><span class="w">        </span><span class="nx">Logger</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">smf_factory</span><span class="p">.</span><span class="nx">Logger</span><span class="p">{</span>
+</span><span id="__span-2-167"><a id="__codelineno-2-167" name="__codelineno-2-167" href="#__codelineno-2-167"></a><span class="w">            </span><span class="nx">Enable</span><span class="p">:</span><span class="w">       </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-2-168"><a id="__codelineno-2-168" name="__codelineno-2-168" href="#__codelineno-2-168"></a><span class="w">            </span><span class="nx">Level</span><span class="p">:</span><span class="w">        </span><span class="s">"info"</span><span class="p">,</span>
+</span><span id="__span-2-169"><a id="__codelineno-2-169" name="__codelineno-2-169" href="#__codelineno-2-169"></a><span class="w">            </span><span class="nx">ReportCaller</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-2-170"><a id="__codelineno-2-170" name="__codelineno-2-170" href="#__codelineno-2-170"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-2-171"><a id="__codelineno-2-171" name="__codelineno-2-171" href="#__codelineno-2-171"></a><span class="w">    </span><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="3-mac-verification-failure-20-pt">🌟🌟 #3 MAC Verification Failure (20 pt)</h3>
+<p>這一天，你又收到了用戶發來的 ticket，用戶表示他已經理解不可以隨便更改 MongoDB 的資料，可是現在卻連一開始的<strong>驗證</strong>以及<strong>安全模式建立階段</strong>都過不了。</p>
+<h3 id="4-amf-ngap-id-not-found-25-pt">🌟🌟🌟🌟 #4 AMF: NGAP ID not found (25 pt)</h3>
+<p>陽光明媚的午後，你又双收到了用戶的 ticket，這一次用戶清楚的說明 UE 的驗證資料沒問題，卻在建立 PDU session 的過程核網發生找不到 UENgapID 的問題。</p>
+<p>你仔細檢查了用戶的 UE 設定，確認 UE 的設定都沒問題，看起來似乎問題不是出現在 UE 上面...</p>
+<h3 id="5-ue-unexpected-release-25-pt">🌟🌟🌟🌟 #5 UE Unexpected Release (25 pt)</h3>
+<p>中秋節前夕，你滿心歡喜的想著終於可以放假了，卻又双叒收到了用戶的來信，客戶回報說他們的 UE 完成註冊後，發現 5GC（核網）會馬上釋放剛建立的 UE context，你能找出原因嗎？</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Alonza0314. All rights reserved.
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/cndi-free5gc" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.select", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
