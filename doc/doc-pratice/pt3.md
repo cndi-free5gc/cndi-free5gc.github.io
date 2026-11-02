@@ -12,7 +12,7 @@ ULCL（**U**p**L**ink **CL**assifier） 是一個可以透過多 UPF 做流量�
 
 ### Architecture
 
-![ulcl](./images/ulcl.jpg)
+![ulcl](./images/ulcl.png)
 
 ### uerouting.yaml
 
