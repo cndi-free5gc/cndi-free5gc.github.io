@@ -9,3 +9,4 @@
 - [W7 W7 5GC Network Functions Other NFs](slides/W7%205GC%20Network%20Functions%20Other%20NFs.pdf){:target="_blank"}
 - [W9 5GC Deployment - free5GC Compose & Helm](slides/W9%205GC%20Deployment%20-%20free5GC%20Compose%20&%20Helm.pdf){:target="_blank"}
 - [W10 RAN & free-ran-ue - CU_DU_RU, O-RAN, NR-DC](slides/W10%20RAN%20&%20free-ran-ue%20-%20CU_DU_RU,%20O-RAN,%20NR-DC.pdf){:target="_blank"}
+- [W11 Concurrent Programming in Go - goroutine, sync, channel, select, free5GC & free-ran-ue](slides/W11%20Concurrent%20Programming%20in%20Go%20-%20goroutine,%20sync,%20channel,%20select,%20free5GC%20&%20free-ran-ue.pdf){:target="_blank"}
